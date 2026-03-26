@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import time
 import matplotlib.pyplot as plt
 from sklearn.ensemble import IsolationForest
 
@@ -45,8 +46,7 @@ elif menu == "⚙️ Generate Dummy Data":
         df['Time'] = df['Datetime'].dt.time
         
         # Simulate normal residential usage
-       import time
-np.random.seed(int(time.time())) # This makes it change every second!
+        np.random.seed(int(time.time())) # This makes it change every second!
         base_power = np.random.normal(1.5, 0.3, len(df)) 
         
         # Add evening peak loads (6 PM to 10 PM)
